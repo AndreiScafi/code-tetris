@@ -4,7 +4,13 @@ Tetris game made with HTML, CSS and Javascript, following the tutorial provided 
 
 document.addEventListener('DOMContentLoaded', () => {
     //The code of the whole project must be writen inside this addEventListener function. 
+    const grid = document.querySelector('.grid');
+    let squares = Array.from(document.querySelectorAll('.grid div'));
+    const ScoreDisplay = document.querySelector('#score');
+    const StartBtn = document.querySelector('#start-button');
+    const widht = 10;
 
+    console.log(StartBtn)
 
 
 });

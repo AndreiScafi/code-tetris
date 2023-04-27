@@ -38,7 +38,11 @@ body {
     margin: 20px 0;
     border: none;
     border-radius: 15px;
+    cursor: pointer;
+}
 
+#start-button:active {
+    background-color: rgb(67, 62, 103, 0.8);
 }
 
 .grid-container {
