@@ -3,11 +3,52 @@
 body {
     margin: 0;
     padding: 0;
+    background-color: darkslateblue;
+}
+
+#title1 {
+    text-align: center;
+    color: white;
+    font-weight: bolder;
+    font-size: 50px;
+}
+
+.container {
+    margin: 50px auto;
+    max-width: 800px;
+    padding: 25px;
+    text-align: center;
+    background-color: darkcyan;
+    border-radius: 15px;
+}
+
+.score-container {
+    font-size: 25px;
+    font-weight: bolder;
+    color: white;
+}
+
+
+#start-button {
+    font-size: 20px;
+    font-weight: bolder;
+    background-color: rgb(67, 62, 103);
+    color: white;
+    padding: 10px 20px;
+    margin: 20px 0;
+    border: none;
+    border-radius: 15px;
+
+}
+
+.grid-container {
+    margin-top: -10px;
+    padding: 0 200px 20px;
 }
 
 .grid {
-    width: 200px;
-    height: 400px;
+    width: 400px;
+    height: 800px;
     display: flex;
     flex-wrap: wrap;
     background-color: yellow;
@@ -15,8 +56,8 @@ body {
 
 .grid div {
     box-sizing: border-box;
-    width: 20px;
-    height: 20px;
-    background-color: red;
+    width: 40px;
+    height: 40px;
+    background-color: rgb(124, 115, 187);
     border: solid 1px white;
 }
