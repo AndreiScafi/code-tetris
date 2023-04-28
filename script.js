@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     //make the tetromino move down every second
-    timerId = setInterval(moveDown, 1000);
+    //timerId = setInterval(moveDown, 1000);
 
     //move down function
     function moveDown() {
@@ -101,6 +101,20 @@ document.addEventListener('DOMContentLoaded', () => {
             currentPosition = 4;
             draw();
         }
+    }
+
+    //move the tetromino left, unless is at the edge or there is blockage
+    function moveLeft() {
+        undraw()
+        const isAtLeftEdge = current.some(index => (currentPosition + index) % width === 0);
+
+        if (!isAtLeftEdge) currentPosition -= 1;
+
+        if (current.some(index => squares[currentPosition + index].classList.contains('taken'))) {
+            currentPosition += 1;
+        };
+
+        draw();
     }
 });
 
