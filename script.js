@@ -117,9 +117,10 @@ document.addEventListener('DOMContentLoaded', () => {
             nextRandom = Math.floor(Math.random() * theTetrominoes.length);
             current = theTetrominoes[random][currentRotation];
             currentPosition = 4;
+            addScore();
             draw();
             displayShape();
-            addScore();
+            gameOver();
         }
     }
 
@@ -243,6 +244,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+
+    //game over
+    function gameOver() {
+        if (current.some(index => squares[currentPosition + index].classList.contains('taken'))) {
+            scoreDisplay.innerHTML = 'end';
+            clearInterval(timerId);
+        }
+    }
 
 });
 
