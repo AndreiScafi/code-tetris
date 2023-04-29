@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     //make the tetromino move down every second
-    //timerId = setInterval(moveDown, 1000);
+    timerId = setInterval(moveDown, 1000);
 
     //assign functions to keyCodes
     function control(e) {
@@ -152,18 +152,25 @@ document.addEventListener('DOMContentLoaded', () => {
     //rotate the tetromino
     function rotate() {
         const isAtRighttEdge = current.some(index => (currentPosition + index) % width === width - 1);
+        const isAtRighttEdge1 = current.some(index => (currentPosition + index) % width === width - 2);
         const isAtLeftEdge = current.some(index => (currentPosition + index) % width === 0);
 
-        if (!isAtLeftEdge && !isAtRighttEdge) {
-            undraw()
-            currentRotation++
-            if (currentRotation === current.length) { //if the current rotation gets to 4, make it go back to 0
-                currentRotation = 0;
-            }
-            current = theTetrominoes[random][currentRotation];
-            draw();
-            freeze();
+        undraw()
+        currentRotation++
+        if (currentRotation === current.length) { //if the current rotation gets to 4, make it go back to 0
+            currentRotation = 0;
         }
+        current = theTetrominoes[random][currentRotation];
+        if (current === theTetrominoes[4][currentRotation]) {
+            if (isAtRighttEdge && !isAtRighttEdge1) currentPosition -= 2;
+            if (isAtRighttEdge1 && !isAtRighttEdge) currentPosition -= 1;
+            if (isAtLeftEdge) currentPosition += 1;
+        } else if (current !== theTetrominoes[3][currentRotation]) {
+            if (isAtRighttEdge) currentPosition -= 1;
+            if (isAtLeftEdge) currentPosition += 1;
+        }
+        draw();
+        freeze();
 
     }
 });
