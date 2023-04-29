@@ -6,9 +6,10 @@ document.addEventListener('DOMContentLoaded', () => {
     //The code of the whole project must be writen inside this addEventListener function. 
     const grid = document.querySelector('.grid');
     let squares = Array.from(document.querySelectorAll('.grid div'));
-    const ScoreDisplay = document.querySelector('#score');
-    const StartBtn = document.querySelector('#start-button');
+    const scoreDisplay = document.querySelector('#score');
+    const startBtn = document.querySelector('#start-button');
     const width = 10;
+    let timerId;
 
     let nextRandom = 0; //use in the mini-grid display
 
@@ -82,9 +83,6 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     }
 
-    //make the tetromino move down every second
-    //timerId = setInterval(moveDown, 1000);
-
     //assign functions to keyCodes
     function control(e) {
         if (e.keyCode === 37) {
@@ -114,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (current.some(index => squares[currentPosition + index + width].classList.contains('taken'))) {
             current.forEach(index => squares[currentPosition + index].classList.add('taken'))
             //start a new tetromino falling
-            random = nextRandom;
+            random = nextRandom; //this var is also used in mini-grid display
             nextRandom = Math.floor(Math.random() * theTetrominoes.length);
             current = theTetrominoes[random][currentRotation];
             currentPosition = 4;
@@ -209,7 +207,20 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log(displaySquares)
 
 
-
+    //add functionality to the start/pause button
+    startBtn.addEventListener('click', () => {
+        if (timerId) {
+            //Stop the game
+            clearInterval(timerId);
+            timerId = null;
+        } else {
+            //make the tetromino move down every second
+            draw();
+            timerId = setInterval(moveDown, 1000);
+            nextRandom = Math.floor(Math.random() * theTetrominoes.length);
+            displayShape();
+        }
+    })
 
 
 
