@@ -11,8 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const width = 10;
     let timerId;
 
-    let nextRandom = 0; //use in the mini-grid display
-
     //Add border line
     function addBorderLine() {
         squares.forEach(square => {
@@ -107,6 +105,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     }
 
+    let nextRandom = Math.floor(Math.random() * theTetrominoes.length); //use in the mini-grid display
+
     //freeze function
     function freeze() {
         if (current.some(index => squares[currentPosition + index + width].classList.contains('taken'))) {
@@ -188,7 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const upNextTetrominoes = [
         [1, displayWidth + 1, displayWidth * 2 + 1, 2], //lTetromino
         [0, displayWidth, displayWidth + 1, displayWidth * 2 + 1], //zTetromino
-        [0, displayWidth, displayWidth + 1, displayWidth + 2], //tTetromino
+        [1, displayWidth, displayWidth + 1, displayWidth + 2], //tTetromino
         [0, 1, displayWidth, displayWidth + 1], //oTetromino
         [1, displayWidth + 1, displayWidth * 2 + 1, displayWidth * 3 + 1], //iTetromino
     ]
@@ -217,7 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
             //make the tetromino move down every second
             draw();
             timerId = setInterval(moveDown, 1000);
-            nextRandom = Math.floor(Math.random() * theTetrominoes.length);
+            //nextRandom = Math.floor(Math.random() * theTetrominoes.length);
             displayShape();
         }
     })

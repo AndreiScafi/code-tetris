@@ -42,7 +42,7 @@ body {
 }
 
 #start-button:active {
-    background-color: rgb(67, 62, 103, 0.8);
+    background-color: rgb(67, 62, 103, 0.6);
 }
 
 .grid-container {
