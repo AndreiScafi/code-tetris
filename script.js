@@ -154,6 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const isAtRighttEdge = current.some(index => (currentPosition + index) % width === width - 1);
         const isAtRighttEdge1 = current.some(index => (currentPosition + index) % width === width - 2);
         const isAtLeftEdge = current.some(index => (currentPosition + index) % width === 0);
+        const isAtLeftEdge1 = current.some(index => (currentPosition + index) % width === 1);
 
         undraw()
         currentRotation++
@@ -161,10 +162,12 @@ document.addEventListener('DOMContentLoaded', () => {
             currentRotation = 0;
         }
         current = theTetrominoes[random][currentRotation];
+
+        //Fixing the rotation bug that occurs near the edge
         if (current === theTetrominoes[4][currentRotation]) {
             if (isAtRighttEdge && !isAtRighttEdge1) currentPosition -= 2;
             if (isAtRighttEdge1 && !isAtRighttEdge) currentPosition -= 1;
-            if (isAtLeftEdge) currentPosition += 1;
+            if (isAtLeftEdge && !isAtLeftEdge1) currentPosition += 1;
         } else if (current !== theTetrominoes[3][currentRotation]) {
             if (isAtRighttEdge) currentPosition -= 1;
             if (isAtLeftEdge) currentPosition += 1;
