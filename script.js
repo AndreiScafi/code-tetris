@@ -16,9 +16,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const colors = [
         'orange',
         'red',
-        'purple',
-        'green',
-        'blue'
+        'magenta',
+        'lawngreen',
+        'blue',
+        'yellow',
+        'rebeccapurple'
     ];
 
     //Add border line
@@ -68,7 +70,21 @@ document.addEventListener('DOMContentLoaded', () => {
         [width, width + 1, width + 2, width + 3]
     ];
 
-    const theTetrominoes = [lTetromino, zTetromino, tTetromino, oTetromino, iTetromino];
+    const jTetromino = [
+        [0, 1, width + 1, width * 2 + 1],
+        [2, width, width + 1, width + 2],
+        [1, width + 1, width * 2 + 1, width * 2 + 2],
+        [width, width + 1, width + 2, width * 2]
+    ];
+
+    const sTetromino = [
+        [1, width, width + 1, width * 2],
+        [0, 1, width + 1, width + 2],
+        [1, width, width + 1, width * 2],
+        [0, 1, width + 1, width + 2]
+    ];
+
+    const theTetrominoes = [lTetromino, zTetromino, tTetromino, oTetromino, iTetromino, jTetromino, sTetromino];
 
     let currentPosition = 4;
     let currentRotation = 0;
@@ -205,6 +221,8 @@ document.addEventListener('DOMContentLoaded', () => {
         [1, displayWidth, displayWidth + 1, displayWidth + 2], //tTetromino
         [0, 1, displayWidth, displayWidth + 1], //oTetromino
         [1, displayWidth + 1, displayWidth * 2 + 1, displayWidth * 3 + 1], //iTetromino
+        [0, 1, displayWidth + 1, displayWidth * 2 + 1], //jTetromino
+        [1, displayWidth, displayWidth + 1, displayWidth * 2] // sTetromino
     ]
 
     //display the shape in the mini-grid display

@@ -1,38 +1,41 @@
 /* Tetris game made with HTML, CSS and Javascript, following the tutorial provided by freeCodeCamp https://www.youtube.com/watch?v=rAUn1Lom6dw, taught by teacher Ania Kubow. */
 
 body {
+    font-family: 'Bruno Ace', cursive;
     margin: 0;
     padding: 0;
     background-color: darkslateblue;
 }
 
+
 #title1 {
     text-align: center;
     color: white;
     font-weight: bolder;
-    font-size: 50px;
+    font-size: 25px;
 }
 
 .container {
     margin: 20px auto;
     max-width: 800px;
-    padding: 25px;
+    /* padding: 10px; */
     text-align: center;
     background-color: darkcyan;
     border-radius: 15px;
 }
 
 .score-container {
-    font-size: 25px;
+    font-size: 20px;
     font-weight: bolder;
     color: white;
+    padding: 5px;
 }
 
 
 #start-button {
     font-size: 20px;
     font-weight: bolder;
-    background-color: rgb(67, 62, 103);
+    background-color: rgb(129, 120, 194);
     color: white;
     padding: 10px 20px;
     margin: 20px 0;
@@ -50,7 +53,8 @@ body {
     flex-wrap: wrap;
     margin: 10px 20px;
     padding: 10px 20px;
-    border: dotted white 5px;
+    /* border: dotted white 5px; */
+    box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.7);
 }
 
 .grid {
