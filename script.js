@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     }
 
-    addBorderLine();
+    //addBorderLine();
 
     //The Tetrominoes
     const lTetromino = [
@@ -280,7 +280,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //game over
     function gameOver() {
         if (current.some(index => squares[currentPosition + index].classList.contains('taken'))) {
-            scoreDisplay.innerHTML = 'end';
+            scoreDisplay.innerHTML = 'You Lose - Try again!';
             clearInterval(timerId);
         } else if (score >= 1000) {
             scoreDisplay.innerHTML = 'You Win - Congratulations!!!';
